@@ -76,7 +76,7 @@ Compile KMnad configuration file into keyboard layout code to visualize at http:
 |#
 ```
 
-See example: https://github.com/mnesarco/kmonad_dump/raw/main/example.kbd
+See example: https://github.com/mnesarco/kmonad_dump/blob/main/example.kbd
 
 ## Usage:
 
