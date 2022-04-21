@@ -220,7 +220,7 @@ class KeyCap:
                         lab[p] = key
                     else:
                         lab[p] = key.replace('\\', '')
-        content = "\\n".join(lab).rstrip('\\n')
+        content = re.sub(r'(\\n)+$', '', "\\n".join(lab))
         return f'"{content}"'
 
     def get_colors(self):
@@ -319,9 +319,12 @@ class KMonadLayer:
     def __repr__(self) -> str:
         return f"{self.name} {self.rows}"
 
-    def __call__(self, row: int, col: int) -> str:
-        v = self.rows[row][col]
-        return None if v == '_' else v
+    def __call__(self, row: int, col: int):
+        try:
+            v = self.rows[row][col]
+            return None if v == '_' else v
+        except:
+            return None
 
 # +-------------------------------------------------------------------------+
 # | KMonad file compiler:                                                   |
